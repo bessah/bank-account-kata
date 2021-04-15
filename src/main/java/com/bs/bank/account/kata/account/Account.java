@@ -1,25 +1,30 @@
 package com.bs.bank.account.kata.account;
 
 import com.bs.bank.account.kata.Money;
+import com.bs.bank.account.kata.operation.Operation;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Account {
-    private Money balance;
+    private final List<Operation> operations;
 
     public Account() {
-        this.balance = new Money(BigDecimal.ZERO);
+        this.operations = new ArrayList<>();
     }
 
     public Money getBalance() {
-        return balance;
+        return operations.stream()
+                .map(Operation::getAmount)
+                .reduce(new Money(BigDecimal.ZERO), Money::add);
     }
 
     public void deposit(Money money) {
-        balance = balance.add(money);
+        operations.add(Operation.createDepositOperation(money));
     }
 
     public void withdrawal(Money money) {
-        balance = balance.subtract(money);
+        operations.add(Operation.createWithdrawalOperation(money.negate()));
     }
 }

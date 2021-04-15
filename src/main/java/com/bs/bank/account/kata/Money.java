@@ -18,6 +18,10 @@ public class Money {
         return new Money(this.amount.subtract(other.amount));
     }
 
+    public Money negate() {
+        return new Money(this.amount.negate());
+    }
+
     public boolean isPositive() {
         return this.amount.signum() == 1;
     }
