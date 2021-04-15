@@ -18,6 +18,10 @@ public class Money {
         return new Money(this.amount.subtract(other.amount));
     }
 
+    public boolean isPositive() {
+        return this.amount.signum() == 1;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

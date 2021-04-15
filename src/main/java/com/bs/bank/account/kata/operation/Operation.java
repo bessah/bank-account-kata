@@ -15,6 +15,13 @@ public class Operation {
         this.date = date;
     }
 
+    public static Operation createDepositOperation(Money amount) {
+        if (!amount.isPositive()) {
+            throw new IllegalArgumentException("Amount of deposit operation should be positive");
+        }
+        return new Operation(OperationType.DEPOSIT, amount, LocalDateTime.now());
+    }
+
     public OperationType getType() {
         return type;
     }
