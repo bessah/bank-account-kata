@@ -18,4 +18,18 @@ class AccountShould {
         Money expected = new Money(BigDecimal.ZERO);
         assertEquals(expected, account.getBalance());
     }
+
+    @Test
+    void have_balance_increased_by_500_when_deposit_500() {
+        // Given
+        Account account = new Account();
+        Money money = new Money(BigDecimal.valueOf(500));
+
+        // When
+        account.deposit(money);
+
+        // Then
+        Money expected = new Money(BigDecimal.valueOf(500));
+        assertEquals(expected, account.getBalance());
+    }
 }
