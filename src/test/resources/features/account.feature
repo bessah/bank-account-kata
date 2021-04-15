@@ -10,3 +10,10 @@ Feature: Bank Account
     Then My statement lines should be:
       | operation_type | operation_amount | balance |
       | DEPOSIT        | 100              | 100     |
+
+  Scenario: Withdrawal 50 and ask the statement lines
+    Given I withdrawal 50 euros
+    When I ask the statement
+    Then My statement lines should be:
+      | operation_type | operation_amount | balance |
+      | WITHDRAWAL     | -50              | -50     |

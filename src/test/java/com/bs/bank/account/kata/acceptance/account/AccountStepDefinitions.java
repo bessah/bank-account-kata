@@ -30,6 +30,11 @@ public class AccountStepDefinitions {
         account.deposit(new Money(amount));
     }
 
+    @Given("^I withdrawal (\\d+) euros$")
+    public void i_withdrawal(BigDecimal amount) {
+        account.withdrawal(new Money(amount));
+    }
+
     @When("^I ask the statement$")
     public void i_ask_the_statement() {
         statement = account.getStatement();
