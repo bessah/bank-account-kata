@@ -32,4 +32,18 @@ class AccountShould {
         Money expected = new Money(BigDecimal.valueOf(500));
         assertEquals(expected, account.getBalance());
     }
+
+    @Test
+    void have_balance_decreased_by_50_when_withdrawal_50() {
+        // Given
+        Account account = new Account();
+        Money money = new Money(BigDecimal.valueOf(50));
+
+        // When
+        account.withdrawal(money);
+
+        // Then
+        Money expected = new Money(BigDecimal.valueOf(-50));
+        assertEquals(expected, account.getBalance());
+    }
 }
