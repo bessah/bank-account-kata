@@ -22,6 +22,10 @@ public class Money {
         return this.amount.signum() == 1;
     }
 
+    public boolean isNegative() {
+        return this.amount.signum() == -1;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

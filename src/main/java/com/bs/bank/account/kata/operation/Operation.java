@@ -22,6 +22,13 @@ public class Operation {
         return new Operation(OperationType.DEPOSIT, amount, LocalDateTime.now());
     }
 
+    public static Operation createWithdrawalOperation(Money amount) {
+        if (!amount.isNegative()) {
+            throw new IllegalArgumentException("Amount of withdrawal operation should be negative");
+        }
+        return new Operation(OperationType.WITHDRAWAL, amount, LocalDateTime.now());
+    }
+
     public OperationType getType() {
         return type;
     }
