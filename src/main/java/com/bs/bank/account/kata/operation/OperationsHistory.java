@@ -25,7 +25,6 @@ public class OperationsHistory {
     }
 
     public Statement getStatement() {
-        // TODO : Create Statement lines from operations
-        return new Statement(new ArrayList<>());
+        return Statement.of(operations);
     }
 }
