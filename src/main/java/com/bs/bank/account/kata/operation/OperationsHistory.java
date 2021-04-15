@@ -1,6 +1,7 @@
 package com.bs.bank.account.kata.operation;
 
 import com.bs.bank.account.kata.Money;
+import com.bs.bank.account.kata.statement.Statement;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,5 +22,10 @@ public class OperationsHistory {
         return operations.stream()
                 .map(Operation::getAmount)
                 .reduce(new Money(BigDecimal.ZERO), Money::add);
+    }
+
+    public Statement getStatement() {
+        // TODO : Create Statement lines from operations
+        return new Statement(new ArrayList<>());
     }
 }

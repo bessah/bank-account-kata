@@ -3,6 +3,7 @@ package com.bs.bank.account.kata.account;
 import com.bs.bank.account.kata.Money;
 import com.bs.bank.account.kata.operation.Operation;
 import com.bs.bank.account.kata.operation.OperationsHistory;
+import com.bs.bank.account.kata.statement.Statement;
 
 public class Account {
     private final OperationsHistory operationsHistory;
@@ -21,5 +22,9 @@ public class Account {
 
     public void withdrawal(Money money) {
         operationsHistory.add(Operation.createWithdrawalOperation(money.negate()));
+    }
+
+    public Statement getStatement() {
+        return operationsHistory.getStatement();
     }
 }
